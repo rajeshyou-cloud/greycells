@@ -6,9 +6,12 @@ export default function Navbar(){
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-primary text-light">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-white font-bold text-lg">GreyCells</div>
+    <nav className="bg-primary text-light sticky top-0 z-50 shadow-lg">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <NavLink to="/" className="flex items-center gap-2 hover:opacity-80 transition">
+          <img src="/greycells/logo.svg" alt="GreyCells Logo" className="h-10 w-10" />
+          <span className="text-white font-bold text-lg hidden sm:inline">GreyCells</span>
+        </NavLink>
 
         <ul className="hidden md:flex items-center gap-6">
           {navLinks.map(link => (
