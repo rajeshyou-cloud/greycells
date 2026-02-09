@@ -14,14 +14,17 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
           cache: 'npm'
 
+      - name: Use npm 9
+        run: npm i -g npm@9
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
-        run: node ./node_modules/vite/bin/vite.js build
+        run: npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
