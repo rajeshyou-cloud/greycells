@@ -4,9 +4,9 @@ import { FileText, Download, ExternalLink } from 'lucide-react';
 
 export default function Resources(){
   const resources = [
-    { title: 'AI Automation Guide', type: 'PDF', size: '2.4 MB' },
-    { title: 'Product Development Checklist', type: 'PDF', size: '1.1 MB' },
-    { title: 'Digital Marketing Strategy Template', type: 'PDF', size: '1.8 MB' }
+    { title: 'AI Automation Guide', type: 'TXT', size: '12 KB', href: '/downloads/ai-automation-guide.txt' },
+    { title: 'Product Development Checklist', type: 'TXT', size: '9 KB', href: '/downloads/product-development-checklist.txt' },
+    { title: 'Digital Marketing Strategy Template', type: 'TXT', size: '11 KB', href: '/downloads/digital-marketing-strategy-template.txt' }
   ];
 
   return (
@@ -37,7 +37,14 @@ export default function Resources(){
                       <p className="text-sm text-gray-600">{res.type} • {res.size}</p>
                     </div>
                   </div>
-                  <Download className="w-5 h-5 text-secondary hover:text-secondary/80 cursor-pointer" />
+                  <a
+                    href={res.href}
+                    download
+                    className="inline-flex items-center gap-2 text-secondary hover:text-secondary/80"
+                  >
+                    <Download className="w-5 h-5" />
+                    <span className="text-sm">Download</span>
+                  </a>
                 </div>
               ))}
             </div>

@@ -20,7 +20,7 @@ import Resources from './pages/Resources.jsx';
 function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter basename="/greycells">
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -2,7 +2,7 @@
 
 Last Updated: February 9, 2026 | Status: Ready for deployment
 
-This guide matches the current repo layout. It assumes the full site code is already present in `src/` and configuration files already exist in the repo.
+This guide matches the current repo layout. The full site is already in `src/`.
 
 ---
 
@@ -36,29 +36,15 @@ npm install
 npm run dev
 ```
 
-Open: `http://localhost:5173/greycells/`
+Open: `http://localhost:5173/`
 
 ---
 
-## Phase 4: Fix GitHub Actions Workflow (Required)
-
-The repo currently contains merge conflict markers in `.github/workflows/deploy.yml`. You must resolve them before pushing.
-
-Recommended resolution (choose one consistent configuration):
-- Use `actions/checkout@v4`
-- Use `actions/setup-node@v4` with Node 20
-- Use `npm ci` for installs
-- Use `JamesIves/github-pages-deploy-action@v4` for deployment
-
-After resolving, commit the cleaned file.
-
----
-
-## Phase 5: Deploy to GitHub Pages
+## Phase 4: Deploy to GitHub Pages
 
 ```bash
 git add .
-git commit -m "Fix workflow and deploy"
+git commit -m "Deploy GreyCells"
 git push origin main
 ```
 
@@ -83,6 +69,7 @@ Your site will publish to:
 
 ## Notes
 
-- The Vite base path is already set to `/greycells/` in `vite.config.js`.
-- All pages and components already exist in `src/pages` and `src/components`.
+- Vite base is `/greycells/` in production and `/` in dev via `import.meta.env.BASE_URL`.
+- Home includes the landing section and a hero banner.
+- Resources downloads are served from `public/downloads/`.
 - No `.env` file is required.
